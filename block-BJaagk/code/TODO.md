@@ -25,7 +25,7 @@ function percentage(marks, total) {
 }
 // Your answer
 
-let percentage = (marks, total) => (marks * 100) / total;
+//function declaration
 ```
 
 ```js
@@ -33,9 +33,7 @@ let percentage = function percentage(marks, total) {
   return (marks * 100) / total;
 };
 
-function percentage(marks, total) {
-  return (marks * 100) / total;
-}
+//function expression
 ```
 
 ```js
@@ -43,9 +41,7 @@ let percentage = function (marks, total) {
   return (marks * 100) / total;
 };
 
-function percentage(marks, total) {
-  return (marks * 100) / total;
-}
+//funcxtion expression
 
 ```
 
@@ -54,17 +50,13 @@ let percentage = (marks, total) => {
   return (marks * 100) / total;
 };
 
-function percentage(marks, total) {
-  return (marks * 100) / total;
-}
+//function expression
 ```
 
 ```js
 let percentage = (marks, total) => (marks * 100) / total;
 
-function percentage(marks, total) {
-  return (marks * 100) / total;
-}
+function expression
 
 ```
 
@@ -108,6 +100,8 @@ add(2, 3);
 7. What is the similarities between function definition and function call?
 
 //both contains function name and both are expressions. 
+function definition is an expression (function is a object in js)
+function call is an expressions (always returns a value)
 
 8. Is the code below valid or invalid. Explain with reason.
 
@@ -131,7 +125,7 @@ let evenNumbers = numbers.filter((elm) => {
   return elm % 2 === 0;
 });
 
-here we are passing a callback function as argument to filter function that will return the even numbers from the array
+here we are passing a callback function as argument to filter method that will return the even numbers from the array
 
 10. Explain what is callback function. Why you can pass a function inside a function?
 
