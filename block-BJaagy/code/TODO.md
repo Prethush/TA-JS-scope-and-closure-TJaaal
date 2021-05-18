@@ -15,11 +15,11 @@ display(add);
 2. Create a function by you choice that returns a function reference.
 
 function display() {
- return function square() {
+  function square() {
     return "Hello World";
   }
 
-
+  return square;
 } 
 
 display();
