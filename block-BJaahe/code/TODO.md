@@ -17,13 +17,13 @@ function outer(str) {
 // Your code goes here
 
 function delay(cb, time) {
+  return function display() {
+    setTimeout(cb, time);
+  }
 
-  return setTimeout(cb, time);
 }
 
-function display() {
-  alert("Hello World");
-}
+
 ```
 
 3. Write a function with a closure. The first function should only take one argument, someone's last name, and return the inner function. The returned `inner` function should take one more argument, someone's first name. When inner function when called it should console.log both the first name and the last name with a space.
@@ -197,7 +197,9 @@ The returned function accepts a string (children) and returns the children with 
 ```js
 function createTag(tag) {
   function display(str) {
-    return `<${tag}>${str}<${tag}>`;
+    let elm = document.createElement(tag);
+    elm.innerText = str;
+    return tag;
   }
 
   return display;
