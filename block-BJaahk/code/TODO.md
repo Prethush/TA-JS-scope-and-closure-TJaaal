@@ -7,13 +7,11 @@ The returned function accepts a sentence. If the sentence contains the `fromWord
 ```js
 function censor(fromWord, toWord) {
   return function(sentence) {
-    if(sentence.includes(fromWord)) {
+    
       return sentence.replace(fromWord, toWord);
       
     }
 
-    
-  }
 }
 
 let censorSentence = censor('World', 'Sam');
@@ -33,21 +31,24 @@ The returned function either accepts two parameter or one parameter.
 
 ```js
 function multipleCensor() {
-  let arr1 = [], arr2 = [];
-  return function() {
-    if(arguments.length === 2) {
-      arr1.push(arguments[0]);
-      arr2.push(arguments[1]);
-      console.log(arr1, arr2)
+  let words = [];
+
+  return function(...params) {
+    if(params.length === 1) {
+      let quote = params[0];
+
+      words.forEach((elm) => {
+
+        quote = quote.replace(elm[0], elm[1]);
+      });
+
+      return quote;
+
+    }else if(params.length === 2) {
+      words.push(params);
+    } else {
+      alert(`The parameters are invalid`);
     }
-    if(arguments.length === 1) {
-      console.log(arr1, arr2)
-      for(let i = 0; i < arr1.length; i++) {
-        arguments[0] = arguments[0].replaceAll(arr1[i], arr2[i]);
-      }
-      return arguments[0];
-    }  
-    
   }
 }
 
@@ -77,7 +78,7 @@ let obj = {};
   return function(para) {
     if(para !== pwd) {
       obj[para] = cb(para);
-      return obj[para];
+      return cb[para];
     }
 
     return obj;
@@ -105,12 +106,13 @@ function createCache(cb, pwd) {
 let obj = {};
   return function(para) {
     if(para !== pwd) {
-      if(obj.hasOwnProperty(para)) {
+      if(obj[para]) {
         
         return obj[para];
-      }
+      } else {
       obj[para] = cb(para);
-      return obj[para];
+      return cb[para];
+      }
     }
 
     return obj;
