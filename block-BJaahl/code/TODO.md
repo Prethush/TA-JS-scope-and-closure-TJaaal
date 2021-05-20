@@ -2,14 +2,12 @@
 
 ```js
 function once(cb) {
-  let count = 0;
+  let isCalled = false;
   return function() {
-    if(count === 0) {
-      alert("You can only call me once!");
-      count++;
-    } else {
-      return undefined;
-    }
+    if(isCalled === false) {
+      cb();
+      isCalled = true;
+    } 
     
   }
 }
@@ -27,13 +25,11 @@ log(); // return undefinde (can't be called twice)
 
 ```js
 function once(cb, para) {
-  let count = 0;
+  let isCalled = false;
   return function() {
-    if(count === 0) {
+    if(isCalled === false) {
       cb(para);
-      count++;
-    } else {
-      return undefined;
+      isCalled = true;
     }
 
   }
@@ -53,16 +49,14 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest
 
 ```js
 function once(cb, ...params) {
-  let count = 0;
+  let isCalled = false;
   return function() {
-    if(count === 0) {
+    if(isCalled === false) {
       
       cb(...params);
       
-      count++;
-    } else {
-      return undefined;
-    }
+      isCalled = true;
+    } 
 
   }
 }
@@ -84,8 +78,6 @@ function nTimes(cb, times, ...rest) {
       cb(...rest);
       
       count++;
-    } else {
-      return undefined;
     }
 
   }
