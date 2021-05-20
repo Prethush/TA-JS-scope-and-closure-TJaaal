@@ -231,6 +231,18 @@ function sayHi(name) {
 //Execution phase
 
 sayHi();
+
+function sayHi(name) {
+  var name = undefined;
+  let age;
+  
+
+  console.log(name);
+  console.log(age);
+
+  name = 'Lydia';
+  age = 21;
+}
 ```
 
 7.
